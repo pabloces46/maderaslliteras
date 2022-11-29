@@ -1,0 +1,161 @@
+<!-- ================ category section start ================= -->		  
+<section class="mb-5 pt-130px">
+    <div class="container">
+        <div class="section-intro pt-30px pb-30px">
+            <p>Una solución para cada necesidad</p>
+            <h2>Nuestros <span class="section-intro__style">Productos</span></h2>
+        </div>
+
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-5">
+          <div class="sidebar-categories">
+            <div class="head">
+              <h4 class="filtro" *ngIf="filtroFamilia != ''"> {{filtroFamilia}} <a (click)="clearFilter('familia')"><i class="far fa-times-circle"></i> </a></h4>
+              <h4 class="filtro" *ngIf="filtroCategoria != ''">{{filtroCategoria}} <a (click)="clearFilter('categoria')"><i class="far fa-times-circle"></i></a></h4>
+              <h4 class="filtro" *ngIf="filtroSubcategoria != ''">{{filtroSubcategoria}} <a (click)="clearFilter('subcategoria')"><i class="far fa-times-circle"></i></a></h4>
+            </div>
+            <ul class="main-categories">
+              
+              
+              <!--
+                <li class="common-filter">
+                  <h4>Rubros</h4>
+                    <ul>
+                      <li class="filter-list" *ngFor="let item of rubros; let i = index">
+                        <input class="pixel-radio" type="radio" id="rub{{i}}" name="rubro" (click)="rubroFilter(item)">
+                        <label for="rub{{i}}">{{item}}
+                        </label>
+                      </li>
+                    </ul>
+                </li>
+              -->
+              <ng-container *ngIf="TotalArticulosParaMostrar > 0"> 
+
+              <ng-container *ngIf="showFamily == true"> 
+                <li class="common-filter">
+                  <h4>Familias</h4>
+                    <ul>
+                      <li class="filter-list" *ngFor="let item of familias; let i = index">
+                        <input class="pixel-radio" type="radio" id="{{i}}" name="family" (click)="familyFilter(item.familia)">
+                        <label for="{{i}}">{{item.familia}}
+                          <!--<span> ({{item.cant}})</span>-->
+                        </label>
+                      </li>
+                    </ul>
+                </li>
+              </ng-container>
+
+                <ng-container *ngIf="showCategoria == true"> 
+                  <li class="common-filter">
+                    <h4>Categorías</h4>
+                      <ul>
+                        <li class="filter-list" *ngFor="let item of categorias; let j = index">
+                          <input class="pixel-radio" type="radio" id="cat{{j}}" name="cats" (click)="categoryFilter(item.categoria)">
+                          <label for="cat{{j}}">{{item.categoria}} <!--<span>({{item.cant}})</span>-->
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+                </ng-container>
+                  <!--  
+                  <li class="common-filter">
+                    <h4>Subcategorías</h4>
+                        <ul>
+                          <li class="filter-list" *ngFor="let item of subCategorias; let j = index">
+                            <input class="pixel-radio" type="radio" id="sub{{j}}" name="subcats" (click)="subCategoryFilter(item.subcategoria)">
+                            <label for="sub{{j}}">{{item.subcategoria}} <span>({{item.cant}})</span>
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                    -->
+
+              </ng-container>
+
+            </ul>
+          </div>
+
+        </div>
+        <div class="col-xl-9 col-lg-8 col-md-7">
+          <!-- Start Filter Bar -->
+          
+
+          <div class="filter-bar d-flex flex-wrap align-items-center">
+
+            <div class="nice-select sorting">
+              <span class="current">Ordenar</span>
+              <ul class="list">
+                <li class="option" (click)="ordenar('AZ')">de A a Z</li>
+                <li class="option" (click)="ordenar('ZA')">de Z a A</li>
+              </ul>
+            </div>
+
+            <div class="nice-select sorting mr-auto">
+              <span class="current">12 articulos</span>
+              <ul class="list">
+                <li class="option" (click)="mostrar(12)">12 articulos</li>
+                <li class="option" (click)="mostrar(24)">24 articulos</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="input-group filter-bar-search">
+                  <input type="text" placeholder="Buscar" name="search" [formControl]="busqueda"> <!--(keyup)="change($event)">-->
+                  <div class="input-group-append">
+                    <button type="button" (click)="searchSubmit()"><i class="ti-search"></i></button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Filter Bar -->
+          <!-- Start Best Seller -->
+          <section class="lattest-product-area pb-40 category-list">
+            <ng-container *ngIf="TotalArticulosParaMostrar > 0"> 
+              <div class="row">
+                  <div class="col-md-6 col-lg-4" *ngFor="let art of articulosParaMostrar | paginate: {id:'prodcutos_pag', itemsPerPage: maxSize, currentPage: page }">
+                    <div class="card text-center card-product">
+                      <div class="card-product__img">
+                        <img class="card-img" src="{{URL}}server_img/productos/{{art.img}}" alt="">
+                        <ul class="card-product__imgOverlay">
+                          <li><button class="text-white"><a routerLink="/detalle/{{art._id}}"> más info </a></button></li>
+                        </ul>
+                      </div>
+                      <div class="card-body">
+                        <p style="font-size: 12px;">{{ art.familia}}</p>
+                        <h4 class="card-product__title"><a routerLink="/detalle/{{art._id}}">{{art.articulo}}</a></h4>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="text-center">
+                <pagination-controls  id="prodcutos_pag"
+                          (pageChange)="page = ($event)"
+                          maxSize="10"
+                          directionLinks="true"
+                          autoHide="true"
+                          responsive="true"
+                          previousLabel="Anterior"
+                          nextLabel="Siguiente"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+              </div>
+
+          </ng-container>
+
+          <ng-container *ngIf="TotalArticulosParaMostrar == 0">  
+            <div class="text-center"><p>No no encontraron resultados para su busqueda.</p></div>
+          </ng-container>
+
+          </section>
+          <!-- End Best Seller -->
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- ================ category section end ================= -->		  
+    
+
+<app-footer></app-footer>

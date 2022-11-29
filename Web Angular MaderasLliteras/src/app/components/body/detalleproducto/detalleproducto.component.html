@@ -1,0 +1,173 @@
+
+	<ng-container *ngFor="let item of artdatail | async; let i = index">
+		<div class="product_image_area pt-130px" *ngIf="i == 0">
+			<div class="container">
+				<div class="row s_product_inner">
+					<div class="col-lg-6">
+						<!-- <div class="owl-carousel owl-theme s_Product_carousel"> -->
+						<div class="">
+							<div class="single-prd-item">
+								<img class="img-fluid" src="{{URL}}server_img/productos/{{item.img}}" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-5 offset-lg-1">
+						<div class="s_product_text">
+							<h3>{{item.articulo}}</h3>
+							<!-- <h2>$precio {{product_datail}}</h2> -->
+							<ul class="list">
+								<li><span>Rubro</span> : {{item.rubro}}</li>
+								<li><span>Familia</span> : {{item.familia}}</li>
+								<li *ngIf="item.categoria != ''"><span>Categoría</span> : {{item.categoria}}</li>
+
+							</ul>
+							<p>{{item.descripcion}}</p>
+							<div class="product_count pt-30px">
+								<span>Consultanos por este artículo</span> 
+
+								<div class="row pt-20px">
+
+									<div class="col-lg-4">
+									<a class="button primary-btn btn-blue" (click)="mail(item.articulo)">Email</a>    
+
+									</div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-4">
+										 <a class="button primary-btn btn-green" href="https://wa.me/542645856793?text=Hola! Quiero consultar por el artículo *{{item.articulo}}*" target="_blank">WhtasApp</a>  
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ng-container>
+	<!--================End Single Product Area =================-->
+
+	<!--================Product Description Area =================-->
+	<section class="product_description_area">
+		<div class="container">
+			<ul class="nav nav-tabs">
+				
+				<h4>Especificaciones</h4>
+				
+			</ul>
+			<div class="tab-content">
+
+					<div class="table-responsive">
+						<table class="table">
+							<tbody>
+								<ng-container *ngFor="let spec of artdatail | async; let i = index">
+								<tr *ngIf="i == 0">
+									<td>
+										<h5>Artículo</h5>
+									</td>
+									<!--<td>
+										<h5>Código</h5>
+									</td>-->
+									<td *ngIf="spec.ancho != ''">
+										<h5>Ancho</h5>
+									</td>
+									<td *ngIf="spec.largo != ''">
+										<h5>Largo</h5>
+									</td>
+									<td *ngIf="spec.espesor != ''">
+										<h5>Espesor</h5>
+									</td>
+									<td *ngIf="spec.diametro != ''">
+										<h5>Diámetro</h5>
+									</td>
+									<td *ngIf="spec.litros != ''">
+										<h5>Litros</h5>
+									</td>
+									<td *ngIf="spec.kilos != ''">
+										<h5>Kilos</h5>
+									</td>
+									<td *ngIf="spec.tipo != ''">
+										<h5>Tipo</h5>
+									</td>
+									<td *ngIf="spec.grano != ''">
+										<h5>Grano</h5>
+									</td>
+									<td *ngIf="spec.diente != ''">
+										<h5>Diente</h5>
+									</td>
+								</tr>
+
+								
+									 <tr *ngIf="spec.activo == 'SI'">
+										<td>
+											<h5>{{spec.articulo}}</h5>
+										</td>
+										<!--<td>
+											<h5>{{spec.codigo}}</h5>
+										</td>
+										-->
+										<td *ngIf="spec.ancho != ''">
+											<h5>{{spec.ancho}}</h5>
+										</td>
+										<td *ngIf="spec.largo != ''">
+											<h5>{{spec.largo}}</h5>
+										</td>
+										<td *ngIf="spec.espesor != ''">
+											<h5>{{spec.espesor}}</h5>
+										</td>
+										<td *ngIf="spec.diametro != ''">
+											<h5>{{spec.diametro}}</h5>
+										</td>
+										<td *ngIf="spec.litros != ''">
+											<h5>{{spec.litros}}</h5>
+										</td>
+										<td *ngIf="spec.kilos != ''">
+											<h5>{{spec.kilos}}</h5>
+										</td>
+										<td *ngIf="spec.tipo != ''">
+											<h5>{{spec.tipo}}</h5>
+										</td>
+										<td *ngIf="spec.grano != ''">
+											<h5>{{spec.grano}}</h5>
+										</td>
+										<td *ngIf="spec.diente != ''">
+											<h5>{{spec.diente}}</h5>
+										</td>
+									</tr>
+								</ng-container>
+			
+							</tbody>
+						</table>
+
+					</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Product Description Area =================-->
+
+	<!--================ Start related Product area =================-->  
+	<section class="related-product-area section-margin--small mt-0">
+		<div class="container">
+			<div class="section-intro pb-60px">
+        <h2>Productos <span class="section-intro__style">Populares</span></h2>
+      </div>
+			<div class="row mt-30">
+
+        <div class="col-sm-4 col-xl-4 mb-4 mb-xl-0" *ngFor="let item of related_products | async; let i = index">
+          <div class="single-search-product-wrapper">
+            <div class="single-search-product d-flex">
+              <a routerLink="/detalle/{{item._id}}"><img src="{{URL}}server_img/productos/{{item.img}}" alt=""></a>
+              <div class="desc">
+                  <a routerLink="/detalle/{{item._id}}" class="title">{{ item.articulo}}</a>
+                  <div><p>{{item.rubro}}</p></div>
+              </div>
+            </div>
+		  </div>
+		</div>
+
+
+      </div>
+		</div>
+	</section>
+	<!--================ end related Product area =================-->  
+
+<app-footer></app-footer>

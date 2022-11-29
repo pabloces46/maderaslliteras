@@ -1,0 +1,17 @@
+
+<section class="mb-5 pt-130px">
+    <div class="container pt-60px">
+
+        <div class="card-columns">
+            
+            <div class="card showroom" *ngFor="let item of showroomImg | async">
+                <img src="{{URL}}server_img/showroom/{{item.img}}" class="card-img-top">
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+<app-footer></app-footer>

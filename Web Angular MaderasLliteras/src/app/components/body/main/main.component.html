@@ -1,0 +1,125 @@
+<main class="site-main pt-130px">
+
+  <section>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <ng-container>
+        <div class="carousel-item"  *ngFor="let item of portadas | async; let i = index" [ngClass]="{active: i == 0 }">
+          <img src="{{URL}}server_img/portada/{{item.img}}" class="d-block w-100" alt="">
+          <div class="carousel-text d-none d-md-block">
+            <h3> {{ item.texto }}</h3>
+          </div>
+        </div>
+      </ng-container>
+        
+      </div>
+      
+      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+
+    <!-- ================ offer section end ================= --> 
+    
+    <section class="section-margin calc-50px">
+      <div class="container">
+        <div class="section-intro pb-40px">
+          <h2>Buscanos y <span class="section-intro__style">consultanos en</span></h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <div class="social-ico">
+                <a href="https://wa.me/5492645856793" target="_blank"><div id="whatsapp"></div></a>
+            </div>
+            <h4>Whatsapp</h4>
+          </div>
+
+          <div class="col-md-3 text-center">
+            <div class="social-ico">
+              <a href="https://www.compraensanjuan.com/tienda-virtual/anuncios-listado/272414/lliteras-placas-maderas/9/1" target="_blank"><div id="csj"></div></a>
+          </div>
+            <h4>Compra en San Juan</h4>
+          </div>
+
+          <div class="col-md-3 text-center">
+            <div class="social-ico">
+              <a href="https://www.facebook.com/lliterasplacasymaderas/" target="_blank"><div id="facebook"></div></a>
+          </div>
+            <h4>Facebook</h4>
+          </div>
+
+          <div class="col-md-3 text-center">
+            <div class="social-ico">
+              <a href="https://www.instagram.com/lliteras.placasymaderas/" target="_blank"><div id="instagram"></div></a>
+          </div>
+            <h4>Instagram</h4>
+          </div>
+
+          
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ================ trending product section start ================= -->  
+    <section class="">
+      <div class="container">
+        <div class="section-intro pb-60px">
+          <h2>Productos <span class="section-intro__style">Destacados</span></h2>
+        </div>
+        <div class="row">
+
+        <ng-container *ngFor="let item of destacados | async; let i = index">
+          <div class="col-md-3" >
+            <div class="card text-center card-product">
+              <div class="card-product__img">
+                <img class="card-img" src="{{URL}}server_img/destacados/{{item.img}}" alt="">
+                <a href="#" class="card-main-product__imgOverlay">
+                  <h4>{{item.titulo}}</h4>
+                  <p>{{item.texto}}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        </div>
+      </div>
+    </section>
+    <!-- ================ trending product section end ================= -->  
+  
+    <!-- ================ Subscribe section start ================= --> 
+    <section class="subscribe-position">
+      <div class="container">
+        <div class="subscribe text-center">
+          <div class="section-intro pt-60px">
+            <h2>Nuestras <span class="section-intro__style">Marcas</span></h2>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card text-center card-product">
+                <div class="card-product__img">
+                  <img class="card-img" src="../../../../assets/img/proveedores.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================ Subscribe section end ================= --> 
+  
+    
+  
+  </main>
+
+  <app-footer></app-footer>

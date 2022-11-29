@@ -1,0 +1,10 @@
+.search{
+    float: right;
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .search {
+        width: 45%;
+    }
+}

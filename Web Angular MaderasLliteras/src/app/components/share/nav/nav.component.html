@@ -1,0 +1,66 @@
+<header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand logo_h" href="index.html"><img src="assets/img/logo.jpeg" width="200" alt=""></a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="menuButton">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+              <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/inicio" (click)="closeMenu()">Inicio</a></li>
+
+
+              <li class="nav-item submenu dropdown" routerLinkActive="active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" routerLink="/categorias" role="button" aria-haspopup="true"
+                  aria-expanded="false" (click)="closeMenu()">Productos</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" routerLink="/productos/maderas" (click)="closeMenu()">Maderas</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/productos/ferreteria" (click)="closeMenu()">Ferretería</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/productos/adhesivos" (click)="closeMenu()">Adhesivos</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/productos/protectores" (click)="closeMenu()">Protectores</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/productos/herramientas" (click)="closeMenu()">Herramientas</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item submenu dropdown" routerLinkActive="active">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Servicios</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" routerLink="/faq" (click)="closeMenu()">Preguntas Frec.</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/envios" (click)="closeMenu()">Envios a domicilio</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/pagos" (click)="closeMenu()">Formas de Pago</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/optimizaciones" (click)="closeMenu()">Optimizaciones</a></li>
+                </ul>
+              </li>
+              
+              <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/showroom" (click)="closeMenu()">Showroom</a></li>
+
+              <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/donde" (click)="closeMenu()">Donde estamos</a></li>
+              <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/contacto" (click)="closeMenu()">Contactanos</a></li>
+            </ul>
+
+            <ul class="nav-shop">
+              <li class="nav-item"><button data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="ti-search"></i></button></li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+      
+      <div class="container collapse" id="collapseExample">
+        <div class="input-group mb-3 search">
+          <input type="text" class="form-control" placeholder="¿Qué estas buscando?" [formControl]="busqueda">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="submit()" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Buscar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+  <!--================ End Header Menu Area =================-->

@@ -1,0 +1,101 @@
+<!-- ================ contact section start ================= -->
+<section class="mb-5 pt-130px">
+    <div class="container">
+
+      <div class="section-intro pt-30px">
+        <h2>Consul<span class="section-intro__style">tanos</span></h2>
+    </div>
+
+      <div class="row pt-60px">
+        <ng-container *ngFor="let item of contacto | async; let i = index">
+        <div class="col-md-4 col-lg-3 mb-4 mb-md-0" *ngIf="i == 0">
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="fas fa-home"></i></span>
+            <div class="media-body">
+              <h3>Mendoza Sur 454</h3>
+              <p>Rawson, San Juan</p>
+              <p [innerHtml]="item.horarios | replace"></p>
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="fas fa-phone-square"></i></span>
+            <div class="media-body">
+              <h3>{{item.telefono}}</h3>
+              <p>Llamanos a nuestro fijo</p>
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="fab fa-whatsapp-square"></i></span>
+            <div class="media-body">
+              <h3><a href="">{{item.whatsapp}}</a></h3>
+              <p>Escribinos a nuestro Whatsapp</p>
+            </div>
+          </div>
+          
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="fas fa-envelope-square"></i></span>
+            <div class="media-body">
+              <h3>{{item.mail}}</h3>
+              <p>Envianos tu consulta en cualquier momento</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+        <div class="col-md-8 col-lg-9">
+          <form class="form-contact contact_form" [formGroup]="message" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-lg-5">
+                <div
+                  class="error"
+                  *ngIf="submitted && message.controls.nombre.errors?.required">
+                  <span style="color: red; font-size: 12px;">Nombre requerido</span>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" placeholder="Tu nombre" formControlName="nombre">
+                </div>
+                <div
+                  class="error"
+                 *ngIf="submitted && message.controls.email.errors?.required">
+                  <span style="color: red; font-size: 12px;">Email requerido</span>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" name="email" id="email" type="email" placeholder="Tu e-mail" formControlName="email">
+                </div>
+                <div
+                  class="error"
+                  *ngIf="submitted && message.controls.motivo.errors?.required">
+                  <span style="color: red; font-size: 12px;">Motivo requerido</span>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" name="subject" id="subject" type="text" placeholder="Motivo" formControlName="motivo">
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <div class="form-group">
+                  <div
+                  class="error"
+                  *ngIf="submitted && message.controls.consulta.errors?.required">
+                  <span style="color: red; font-size: 12px;">Mensaje requerido</span>
+                </div>
+                    <textarea class="form-control different-control w-100" name="message" id="message" cols="30" rows="5" placeholder="Consulta" formControlName="consulta">
+                  </textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group text-center text-md-right mt-3">
+              <button type="submit" class="button button--active button-contactForm">{{submit_text}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row pt-30px">
+        <div class="col-md-12">
+          <div id="map"></div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+	<!-- ================ contact section end ================= -->

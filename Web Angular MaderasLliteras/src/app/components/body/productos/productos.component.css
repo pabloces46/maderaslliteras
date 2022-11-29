@@ -1,0 +1,22 @@
+.text-white{
+    color: white;
+}
+
+.text-white a{
+    color: white;
+}
+
+.filtro {
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.filtro a{
+    color: white;
+}
+
+.filtro a:hover{
+    color: grey;
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+#map{
+    height: 500px;
+    width: 100%;
+}
+
+.ref1{
+    background-color: red;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+
+.ref2{
+    background-color: #ff9007;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+
+.ref3{
+    background-color: #fbff00;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+
+.ref4{
+    background-color: #4bff00;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+
+.ref5{
+    background-color: #079011;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+.ref6{
+    background-color: #00f3ff;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+.ref7{
+    background-color: blue;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+.ref8{
+    background-color: blueviolet;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+

@@ -1,0 +1,42 @@
+
+<section class="mb-5 pt-130px">
+    <div class="container">
+        
+        <div class="section-intro pt-30px">
+            <h2>Envios <span class="section-intro__style">a domicilio</span></h2>
+        </div>
+
+        <div class="row pt-30px">
+            <p>Ubique su dirección en el mapa y haga click en el lugar para saber en que rango se enuentra.</p>
+            <div class="col-md-9">
+                <div id="map"></div>
+                <div class="pt-30px">
+                    <h4>Nota: Si su dirección no se encuentra dentro de los rangos indicados en el mapa, por favor ponganse en contacto con nosotros para saber el costo.</h4>
+                    <p>Los precios son estimados, el precio final del envío será calculado en el mostrador a la hora de hacer la compra.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <h4>Referencias</h4>
+                    
+                    <ng-container *ngFor="let item of precios | async; let i = index">
+                        <div class="row" >
+                            <div class="col-md-3">
+                                <div [attr.class]="'ref' + (i+1)"></div>
+                            </div>
+                            <div class="col-md-9">
+                                <h4>{{radios[i]}}</h4>
+                                <p>${{item.precio}}</p>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                </div>
+            </div>  
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>
+
+
